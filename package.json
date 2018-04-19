@@ -1,0 +1,19 @@
+{
+  "name": "skicker-exceptions",
+  "version": "0.0.1",
+  "description": "Generic Skicker exceptions to share with modules.",
+  "main": "index.js",
+  "scripts": {
+    "release": "tsc && build/release.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@skicker.fi:~/repos/skicker-exceptions.git"
+  },
+  "keywords": [
+    "exception",
+    "error"
+  ],
+  "author": "Olli-Antti Kivilahti",
+  "license": "SEE LICENSE IN LICENSE"
+}
