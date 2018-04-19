@@ -1,6 +1,6 @@
 {
   "name": "skicker-exceptions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Generic Skicker exceptions to share with modules.",
   "main": "index.js",
   "scripts": {
