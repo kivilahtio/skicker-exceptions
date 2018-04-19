@@ -37,3 +37,5 @@ git push origin master --tags
 rv=$?
 test $rv -ne $? && echo "git push origin master --tags failed "$rv && exit $rv
 
+#Exit nicely
+exit 0
