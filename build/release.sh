@@ -10,7 +10,10 @@ if [ -z $VERSION ]; then
 
   # Check if version is free to be tagged
   NOTFREE=$(git tag -l | grep $VERSION)
-  if [[ $NOTFREE ]]; then
+  if [ -z $NOTFREE ]; then
+    #ok, tag is FREE to use
+    OK=1
+  else
     echo "Environment VERSION is not set. You can set the version, eg. v0.0.2 to release"
     echo "Trying to get version from package.json, but VERSION=$VERSION is already a used tag."
     exit 2
@@ -21,10 +24,16 @@ test -z $VERSION && echo "Environment VERSION is not set. You must set the versi
 git add --all
 rv=$?
 test $rv -ne $? && echo "git add --all failed "$rv && exit $rv
+
 git commit
+rv=$?
 test $rv -ne $? && echo "git commit failed "$rv && exit $rv
+
 git tag $VERSION
+rv=$?
 test $rv -ne $? && echo "git tag $VERSION failed "$rv && exit $rv
+
 git push origin master --tags
-test $rv -ne $? && echo "git push origin master failed "$rv && exit $rv
+rv=$?
+test $rv -ne $? && echo "git push origin master --tags failed "$rv && exit $rv
 
